@@ -4,7 +4,6 @@
 3. Write a decorator that authenticate the user username and password.
 4. Create a generator function that generates Fibonacci numbers.
 
-Certainly! Here's the formatted code along with instructions for users to copy and execute it:
 
 ---
 A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate. The advantage of decorators are
@@ -90,7 +89,10 @@ To execute the code:
 3. Paste the copied code into the `decorators_calculate_total_price.py` file.
 4. Open a terminal or command prompt.
 5. Navigate to the directory containing the `decorators_calculate_total_price.py` file.
-6. Run the command: `python decorators_calculate_total_price.py`
+6. Run the command:
+```bash
+python decorators_calculate_total_price.py
+```
 
 The script defines a decorator `calculate_total_price` that calculates the total price of two individual prices returned by the decorated function. It also provides an example `calculate_price` function that is decorated using `calculate_total_price`. In the example execution block, `calculate_price` is called with individual prices 10 and 20, and the calculated total price is printed.
 
@@ -159,7 +161,10 @@ To execute the code:
 3. Paste the copied code into the `decorator_password_matcher.py` file.
 4. Open a terminal or command prompt.
 5. Navigate to the directory containing the `decorator_password_matcher.py` file.
-6. Run the command: `python decorator_password_matcher.py`
+6. Run the command:
+```bash
+python decorator_password_matcher.py
+```
 
 The script defines a decorator `isAuthenticated` that authenticates user credentials. It also provides an example `authenticate_user` function that is decorated using `isAuthenticated`. In the example execution block, `authenticate_user` is called with username "admin" and password "secret" to demonstrate authentication.
 
@@ -213,7 +218,10 @@ To execute the code:
 3. Paste the copied code into the `month_names_generator.py` file.
 4. Open a terminal or command prompt.
 5. Navigate to the directory containing the `month_names_generator.py` file.
-6. Run the command: `python month_names_generator.py`
+6. Run the command:
+```bash
+python month_names_generator.py
+```
 
 The script defines a generator function `generate_months()` that yields the names of the months from the predefined list. In the main program section, the generator is used to loop through and print each month name.
 
