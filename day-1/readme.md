@@ -164,3 +164,122 @@ To execute the code:
 The script defines a decorator `isAuthenticated` that authenticates user credentials. It also provides an example `authenticate_user` function that is decorated using `isAuthenticated`. In the example execution block, `authenticate_user` is called with username "admin" and password "secret" to demonstrate authentication.
 
 ---
+## Month Names Generator
+
+This Python script generates and prints the names of the months using a generator function.
+
+### Code
+
+The script includes the following components:
+
+```python
+# List of month names
+months = [
+    "January",    # Month index 0
+    "February",   # Month index 1
+    "March",      # Month index 2
+    "April",      # Month index 3
+    "May",        # Month index 4
+    "June",       # Month index 5
+    "July",       # Month index 6
+    "August",     # Month index 7
+    "September",  # Month index 8
+    "October",    # Month index 9
+    "November",   # Month index 10
+    "December"    # Month index 11
+]
+
+def generate_months():
+    """
+    Generator function to yield month names from the 'months' list.
+    
+    Yields:
+        str: The name of a month.
+    """
+    for i in months:
+        yield i
+
+# Main program
+if __name__ == "__main__":
+    # Loop through the month names yielded by the generator function
+    for months_name in generate_months():
+        # Print each month name
+        print(months_name)
+```
+To execute the code:
+
+1. Copy the entire code block above.
+2. Create a new file named `month_names_generator.py`.
+3. Paste the copied code into the `month_names_generator.py` file.
+4. Open a terminal or command prompt.
+5. Navigate to the directory containing the `month_names_generator.py` file.
+6. Run the command: `python month_names_generator.py`
+
+The script defines a generator function `generate_months()` that yields the names of the months from the predefined list. In the main program section, the generator is used to loop through and print each month name.
+
+### Code Explanation
+
+- `months`: A list of month names with associated indices.
+- `generate_months()`: A generator function that yields month names.
+- Main program loop that uses the generator to print each month name.
+
+---
+## Fibonacci Sequence Generator
+
+This Python script defines a generator function `fibonacci_sequence()` that produces an infinite sequence of Fibonacci numbers.
+
+### Usage
+
+1. Import the `fibonacci_sequence` generator function:
+
+    ```python
+    def fibonacci_sequence():
+        """
+        Generator function to produce Fibonacci sequence.
+        
+        Yields:
+            int: The next number in the Fibonacci sequence.
+        """
+        a, b = 0, 1  # Initialize the first two Fibonacci numbers
+        while True:  # Infinite loop to generate the sequence
+            yield a  # Yield the current Fibonacci number
+            a, b = b, a + b  # Calculate the next Fibonacci numbers
+    ```
+
+2. Create an instance of the generator:
+
+    ```python
+    fibonacci_gen = fibonacci_sequence()
+    ```
+
+3. Generate and print the first 10 Fibonacci numbers:
+
+    ```python
+    for _ in range(10):
+        next_fibonacci = next(fibonacci_gen)  # Get the next Fibonacci number
+        print(next_fibonacci)  # Print the generated Fibonacci number
+    ```
+
+## Fibonacci Sequence Generator
+
+This Python script defines a generator function `fibonacci_sequence()` that produces an infinite sequence of Fibonacci numbers.
+
+### Command to run
+
+1. Make sure you have Python installed on your system.
+
+2. Download the `generator_fibonacci_series.py` script to your local machine.
+
+3. Open a terminal or command prompt and navigate to the directory containing the downloaded script.
+
+4. Run the script using the following command:
+
+    ```bash
+    python generator_fibonacci_series.py
+    ```
+
+
+
+
+
+
