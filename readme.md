@@ -1,8 +1,7 @@
 # Day 1: Decorators and Generators
-
-### Explain the purpose of decorators in Python with an example.
-# Write a decorator that measures the time taken by a function to execute.
-# Create a generator function that generates Fibonacci numbers.
+1. Explain the purpose of decorators in Python with an example.
+2. Write a decorator that measures the time taken by a function to execute.
+3. Create a generator function that generates Fibonacci numbers.
 
 Day 2: Context Managers and File Handling
 # What are context managers in Python? Provide an example of using the 
