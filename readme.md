@@ -1,4 +1,4 @@
-Day 1: Decorators and Generators
+# Day 1: Decorators and Generators
 
 ### Explain the purpose of decorators in Python with an example.
 # Write a decorator that measures the time taken by a function to execute.
