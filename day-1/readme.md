@@ -40,10 +40,10 @@ A decorator is a design pattern in Python that allows a user to add new function
 
 This code demonstrates the use of a decorator function to calculate the total price of two individual prices.
 
-**File: `decorators_1.py`**
+**File: `decorators_calculate_total_price.py`**
 
 ```python
-# decorators_1.py
+# decorators_calculate_total_price.py
 
 def calculate_total_price(func):
     """
@@ -86,11 +86,11 @@ if __name__ == "__main__":
 To execute the code:
 
 1. Copy the entire code block above.
-2. Create a new file named `decorators_1.py`.
-3. Paste the copied code into the `decorators_1.py` file.
+2. Create a new file named `decorators_calculate_total_price.py`.
+3. Paste the copied code into the `decorators_calculate_total_price.py` file.
 4. Open a terminal or command prompt.
-5. Navigate to the directory containing the `decorators_1.py` file.
-6. Run the command: `python decorators_1.py`
+5. Navigate to the directory containing the `decorators_calculate_total_price.py` file.
+6. Run the command: `python decorators_calculate_total_price.py`
 
 The script defines a decorator `calculate_total_price` that calculates the total price of two individual prices returned by the decorated function. It also provides an example `calculate_price` function that is decorated using `calculate_total_price`. In the example execution block, `calculate_price` is called with individual prices 10 and 20, and the calculated total price is printed.
 
