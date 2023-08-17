@@ -1,42 +1,43 @@
 Day 1: Decorators and Generators
 
-Explain the purpose of decorators in Python with an example.
-Write a decorator that measures the time taken by a function to execute.
-Create a generator function that generates Fibonacci numbers.
+# Explain the purpose of decorators in Python with an example.
+# Write a decorator that measures the time taken by a function to execute.
+# Create a generator function that generates Fibonacci numbers.
+
 Day 2: Context Managers and File Handling
-4. What are context managers in Python? Provide an example of using the 
+# What are context managers in Python? Provide an example of using the 
 with statement.
-
-How can you implement a custom context manager using the contextlib 
+# How can you implement a custom context manager using the contextlib 
 module?
-Write code to read a large file line by line without loading the entire 
+# Write code to read a large file line by line without loading the entire 
 file into memory.
+
 Day 3: Metaclasses and Reflection
-7. Explain what metaclasses are and how they are used in Python.
-
-Write a metaclass that automatically converts all attribute names to 
+3 Explain what metaclasses are and how they are used in Python.
+# Write a metaclass that automatically converts all attribute names to 
 uppercase.
-How can you access the list of attributes and methods of an object using 
+# How can you access the list of attributes and methods of an object using 
 reflection?
+
 Day 4: Threading and Multiprocessing
-10. Compare and contrast threading and multiprocessing in Python.
-
-Write code to create a multithreaded program that calculates the factorial 
+# Compare and contrast threading and multiprocessing in Python.
+# Write code to create a multithreaded program that calculates the factorial 
 of a number.
-Implement a multiprocessing pool to parallelize a time-consuming task.
+# Implement a multiprocessing pool to parallelize a time-consuming task.
+
 Day 5: Memory Management and Garbage Collection
-13. Describe Python's memory management model and the role of reference 
+# Describe Python's memory management model and the role of reference 
 counting.
-
-What is cyclic garbage collection? How does it prevent memory leaks?
-Write code that demonstrates circular reference and forces garbage 
+# What is cyclic garbage collection? How does it prevent memory leaks?
+# Write code that demonstrates circular reference and forces garbage 
 collection.
-Day 6: Decorators and Design Patterns
-16. Discuss the Singleton design pattern and provide a Python 
-implementation.
 
-Implement a decorator that logs function calls along with their arguments.
-Explain the Observer design pattern and create a basic implementation.
+Day 6: Decorators and Design Patterns
+# Discuss the Singleton design pattern and provide a Python 
+implementation.
+# Implement a decorator that logs function calls along with their arguments.
+# Explain the Observer design pattern and create a basic implementation.
+
 Day 7: Unit Testing and Test Frameworks
 19. What is unit testing? How can you write unit tests in Python?
 
