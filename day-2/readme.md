@@ -79,3 +79,118 @@ Here are a few practical use cases where context managers are extremely valuable
    ```
 
 In all these scenarios, context managers help ensure that resources are acquired when needed and properly released when they're no longer needed, preventing resource leaks and improving the overall reliability of your code.
+
+---
+
+ Here's the complete code for `file_content_manager.py` script, including the `File` class and the README instructions:
+
+**file_content_manager.py:**
+```python
+class File:
+    """
+    A context manager for file handling.
+
+    Args:
+        filename (str): The name of the file to work with.
+        mode (str, optional): The mode in which to open the file (default is 'r').
+
+    Usage:
+        with File("user.csv") as file:
+            content = file.read()
+            print(content)
+    """
+
+    def __init__(self, filename, mode='r'):
+        """
+        Initialize the File context manager.
+
+        Args:
+            filename (str): The name of the file.
+            mode (str, optional): The mode in which to open the file (default is 'r').
+        """
+        self.filename = filename
+        self.mode = mode
+        self.file = None
+
+    def __enter__(self):
+        """
+        Enter the context and open the file.
+
+        Returns:
+            _io.TextIOWrapper: The file object.
+        """
+        print(f"Opening file {self.filename} in '{self.mode}' mode...")
+        print("--------------------------------------------------------")
+        self.file = open(self.filename, self.mode, encoding='utf-8',
+                         errors='ignore')
+        return self.file
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """
+        Exit the context and close the file.
+
+        Args:
+            exc_type: The exception type (if any).
+            exc_val: The exception value (if any).
+            exc_tb: The exception traceback (if any).
+        """
+        if self.file:
+            self.file.close()
+            print(f"Closing file {self.filename}...")
+
+
+if __name__ == "__main__":
+    try:
+        with File("information.csv") as file:
+            content = file.read()
+            print(content)
+            print("--------------------------------------------------------")
+    except FileNotFoundError as e:
+        print(f"The exception is {e}")
+```
+
+**README.md:**
+```
+# File Content Manager
+
+The `File` class is a custom context manager designed to handle file operations. It allows you to open and work with files within a context, ensuring proper resource management.
+
+## Usage
+
+1. **Import the `File` class:**
+
+    ```python
+    from file_content_manager import File
+    ```
+
+2. **Create an instance of `File` within a `with` block:** 
+
+    ```python
+    try:
+        with File("information.csv") as file:
+            content = file.read()
+            print(content)
+            print("--------------------------------------------------------")
+    except FileNotFoundError as e:
+        print(f"The exception is {e}")
+    ```
+
+The class takes care of opening and closing the file while you work with it, ensuring resource cleanup even in the presence of exceptions.
+
+## Running the Script
+
+To run the script, follow these steps:
+
+1. Save the code in a file named `file_content_manager.py`.
+2. Open a terminal or command prompt.
+3. Navigate to the directory where `file_content_manager.py` is located.
+4. Run the script using the command:
+
+   ```
+   python file_content_manager.py
+   ```
+
+Make sure you have Python installed on your system to run the script.
+```
+
+I apologize for any confusion caused. The provided code now includes the complete `File` class and README instructions.
