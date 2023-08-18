@@ -23,6 +23,7 @@ with MyContextManager() as resource:
 
 # Resource is automatically released after the block
 ```
+---
 
 Context managers are widely used in scenarios where you need to ensure proper resource management, such as file handling, database connections, locks, and more. By encapsulating resource setup and cleanup in a context manager, you create more robust and maintainable code.
 Here are a few practical use cases where context managers are extremely valuable for properly managing resources in Python:
