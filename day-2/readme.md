@@ -7,7 +7,7 @@ The primary advantage of using context managers is that they enhance the readabi
 
 Here's the general structure of a context manager:
 
-```python
+```bash
 class MyContextManager:
     def __enter__(self):
         # Setup resource or perform preparations
