@@ -1,9 +1,24 @@
+- A context manager in Python efficiently handles resources like files, database connections, and locks, ensuring proper setup and cleanup.
+- It simplifies code, prevents resource leaks, and automates resource allocation and deallocation.
+- Context managers are crucial when working with resources requiring specific actions before and after use.
 
-A context manager in Python is a programming construct that facilitates the proper management of resources, such as files, network connections, or any other resource that needs to be acquired and released in a predictable and consistent manner. Context managers are used with the `with` statement to ensure that resources are properly initialized before the block of code and properly released after the block, even in the presence of exceptions.
+### Introduction to Context Managers
 
-A context manager typically consists of two methods: `__enter__` and `__exit__`. The `__enter__` method is responsible for setting up the resource or performing any necessary preparations before the code block is executed. The `__exit__` method is responsible for cleaning up the resource after the code block, whether the block was executed successfully or an exception was raised.
+- Context managers in Python manage resources systematically, ensuring acquisition and release.
+- They work seamlessly with the `with` statement for consistent resource management.
+- Context managers help maintain predictability, even in the presence of exceptions.
 
-The primary advantage of using context managers is that they enhance the readability and reliability of your code by ensuring that resources are managed consistently. This helps to avoid common programming mistakes like resource leaks due to forgetting to release resources.
+### Structure of a Context Manager
+
+- Context managers consist of two methods: `__enter__` and `__exit__`.
+- `__enter__` initializes resources or performs preparations before code execution.
+- `__exit__` cleans up resources, regardless of code block success or exceptions.
+
+### Benefits of Using Context Managers
+
+- Readability and reliability are enhanced by ensuring consistent resource management.
+- Context managers prevent common mistakes like resource leaks.
+- They simplify coding tasks and promote clean code practices.
 
 Here's the general structure of a context manager:
 
@@ -149,8 +164,6 @@ if __name__ == "__main__":
         print(f"The exception is {e}")
 ```
 
-**README.md:**
-
 # File Content Manager
 
 The `File` class is a custom context manager designed to handle file operations. It allows you to open and work with files within a context, ensuring proper resource management.
@@ -189,3 +202,72 @@ To run the script, follow these steps:
    ```
    python file_content_manager.py
    ```
+---
+
+## Custom Context Manager Example
+
+The provided code demonstrates the creation and usage of a custom context manager using the `contextlib` module. The custom context manager allows you to open files within a context, automatically handling file opening and closing.
+
+### Code Explanation
+
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def custom_context_manager(filename, mode='r'):
+    """
+    A custom context manager for file handling.
+
+    Args:
+        filename (str): The name of the file to open.
+        mode (str, optional): The mode in which to open the file (default is 'r').
+
+    Yields:
+        _io.TextIOWrapper: The file object.
+
+    Usage:
+        with custom_context_manager("information.csv") as file:
+            content = file.read()
+            # Process content
+    """
+    file = None
+    try:
+        print(f"Opening File: {filename}")
+        print("--------------------------------------------------------")
+        file = open(filename, mode=mode, encoding='utf-8', errors='ignore')
+        yield file
+    finally:
+        if file:
+            file.close()
+            print(f"Closing File: {filename}")
+```
+
+### README.md Instructions
+
+1. **Run the script:** Save the code in a file named `contextlib_custom_context_manager.py`. Open a terminal or command prompt and navigate to the directory where `contextlib_custom_context_manager.py` is located. Run the script using the command:
+
+   ```
+   python contextlib_custom_context_manager.py
+   ```
+
+2. **Using the custom context manager:** The script defines a custom context manager named `custom_context_manager` that allows you to open a file within a context. The usage is as follows:
+
+   ```python
+   from contextlib_custom_context_manager import custom_context_manager
+
+   try:
+       with custom_context_manager("information.csv") as file:
+           content = file.read()
+           # Process content
+   except FileNotFoundError as e:
+       print(f"Exception: {e}")
+   ```
+
+   The custom context manager takes care of opening and closing the file, ensuring proper resource management even in the presence of exceptions.
+
+Make sure you have Python installed on your system to run the script.
+
+---
+
+By using context managers, like the custom one demonstrated above, you can streamline resource management and ensure clean and reliable code execution.
+
