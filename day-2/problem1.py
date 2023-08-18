@@ -20,12 +20,16 @@ def read_file(filename, mode='r'):
     """
     try:
         with open(filename, mode=mode, encoding='utf-8', errors='ignore') as file:
-            yield file
+            yield file  # The file is automatically closed when exiting the context
     finally:
-        pass
-    
- 
+        pass  # No need to close the file explicitly, the 'with' statement handles it
+
+
 if __name__ == "__main__":
-    with read_file("information.csv") as file:
-        for line in file:
-            print(line, end='')
+    try:
+        with read_file("information.csv") as file:
+            for line in file:
+                print(line, end='')
+
+    except FileNotFoundError as e:
+        print(f"Exception: {e}")

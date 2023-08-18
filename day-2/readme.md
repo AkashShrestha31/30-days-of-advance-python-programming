@@ -242,7 +242,7 @@ def custom_context_manager(filename, mode='r'):
             print(f"Closing File: {filename}")
 ```
 
-### README.md Instructions
+###Instructions
 
 1. **Run the script:** Save the code in a file named `contextlib_custom_context_manager.py`. Open a terminal or command prompt and navigate to the directory where `contextlib_custom_context_manager.py` is located. Run the script using the command:
 
@@ -265,9 +265,83 @@ def custom_context_manager(filename, mode='r'):
 
    The custom context manager takes care of opening and closing the file, ensuring proper resource management even in the presence of exceptions.
 
-Make sure you have Python installed on your system to run the script.
-
 ---
 
 By using context managers, like the custom one demonstrated above, you can streamline resource management and ensure clean and reliable code execution.
 
+---
+
+## Efficient File Reading using Custom Context Manager
+
+The `problem1.py` script demonstrates the use of a custom context manager for reading files line by line without loading the entire content into memory.
+
+### Code Explanation
+
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def read_file(filename, mode='r'):
+    """
+    A custom context manager for reading files line by line without loading the entire file into memory.
+
+    Args:
+        filename (str): The name of the file to read.
+        mode (str, optional): The mode in which to open the file (default is 'r').
+
+    Yields:
+        _io.TextIOWrapper: The file object.
+
+    Usage:
+        with read_file("information.csv") as file:
+            for line in file:
+                print(line, end='')
+    """
+    try:
+        with open(filename, mode=mode, encoding='utf-8', errors='ignore') as file:
+            yield file  # The file is automatically closed when exiting the context
+    finally:
+        pass  # No need to close the file explicitly, the 'with' statement handles it
+
+
+if __name__ == "__main__":
+    try:
+        with read_file("information.csv") as file:
+            for line in file:
+                print(line, end='')
+
+    except FileNotFoundError as e:
+        print(f"Exception: {e}")
+```
+
+### Usage
+
+1. **Save the script:** Copy the code above and save it in a file named `problem1.py`.
+
+2. **Run the script:**
+   - Open a terminal or command prompt.
+   - Navigate to the directory where `problem1.py` is located.
+   - Run the script using the command:
+     ```
+     python problem1.py
+     ```
+
+### Example Usage
+
+```python
+from problem1 import read_file
+
+# Using the custom context manager
+try:
+    with read_file("information.csv") as file:
+        for line in file:
+            print(line, end='')
+except FileNotFoundError as e:
+    print(f"Exception: {e}")
+```
+
+- The `with` statement ensures proper file handling, including automatic closure.
+- The custom context manager enables efficient line-by-line reading of large files.
+
+
+---
