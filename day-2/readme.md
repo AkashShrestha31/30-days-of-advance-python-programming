@@ -150,7 +150,7 @@ if __name__ == "__main__":
 ```
 
 **README.md:**
-```
+
 # File Content Manager
 
 The `File` class is a custom context manager designed to handle file operations. It allows you to open and work with files within a context, ensuring proper resource management.
@@ -189,8 +189,3 @@ To run the script, follow these steps:
    ```
    python file_content_manager.py
    ```
-
-Make sure you have Python installed on your system to run the script.
-```
-
-I apologize for any confusion caused. The provided code now includes the complete `File` class and README instructions.
