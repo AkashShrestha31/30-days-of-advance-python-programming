@@ -43,6 +43,7 @@ class Adding(metaclass=Meta):
         """
         return self.A + self.B
 
+
 # Main module execution
 if __name__ == "__main__":
     # Create an instance of the Adding class

@@ -90,3 +90,57 @@ In this code:
 - The main module execution section creates an instance of the `Adding` class and prints the result of calling the `sum` method, which should output the sum of `A` and `B` (i.e., `11`).
 
 The provided documentation comments describe the purpose and functionality of each section of the code, making it clear what the code does and how it achieves its goals.
+
+
+___
+
+Reflection in Python refers to the ability of a program to examine and modify its own structure, behavior, or attributes at runtime. This involves inspecting and interacting with objects, classes, functions, and modules dynamically, rather than statically. Reflection allows you to access and manipulate various elements of a program without knowing their names or types beforehand.
+
+Python provides several built-in tools and modules that facilitate reflection:
+
+1. **`dir()` function:**
+The `dir()` function returns a list of attributes and methods of an object. It includes both user-defined and built-in attributes. For example:
+```python
+obj = SomeClass()
+attributes_and_methods = dir(obj)
+print(attributes_and_methods)
+```
+
+2. **`getattr()` and `setattr()` functions:**
+These functions allow you to get and set attributes of an object by name:
+```python
+obj = SomeClass()
+value = getattr(obj, 'attribute_name')
+setattr(obj, 'attribute_name', new_value)
+```
+
+3. **`inspect` module:**
+The `inspect` module provides more advanced reflection capabilities, including functions to retrieve information about classes, functions, and objects. It's useful for more detailed introspection:
+```python
+import inspect
+
+obj = SomeClass()
+members = inspect.getmembers(obj)
+print(members)
+```
+
+4. **`type()` function:**
+The `type()` function returns the type of an object. It can be used to check if an object is an instance of a certain class:
+```python
+obj = SomeClass()
+if type(obj) == SomeClass:
+    print("Object is an instance of SomeClass")
+```
+
+5. **`isinstance()` function:**
+The `isinstance()` function checks if an object is an instance of a specific class or a tuple of classes:
+```python
+obj = SomeClass()
+if isinstance(obj, SomeClass):
+    print("Object is an instance of SomeClass")
+```
+
+6. **Metaclasses:**
+Metaclasses define the behavior of classes, including class creation and initialization. They allow you to customize class creation at the metaclass level, which can be considered advanced reflection.
+
+Reflection can be powerful, but it should be used carefully due to its potential impact on code readability and security. Overusing reflection can make code harder to understand and maintain.
