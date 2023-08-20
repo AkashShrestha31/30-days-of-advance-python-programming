@@ -18,6 +18,7 @@ file into memory.
 uppercase.
 3. How can you access the list of attributes and methods of an object using 
 reflection?
+4. What is dataclasses with example?
 
 # Day 4: Threading and Multiprocessing
 1. Compare and contrast threading and multiprocessing in Python.

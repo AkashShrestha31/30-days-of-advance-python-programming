@@ -4,6 +4,7 @@
 uppercase.
 3. How can you access the list of attributes and methods of an object using 
 reflection?
+4. What is dataclasses with example?
 
 ---
 
@@ -144,3 +145,53 @@ if isinstance(obj, SomeClass):
 Metaclasses define the behavior of classes, including class creation and initialization. They allow you to customize class creation at the metaclass level, which can be considered advanced reflection.
 
 Reflection can be powerful, but it should be used carefully due to its potential impact on code readability and security. Overusing reflection can make code harder to understand and maintain.
+
+___
+
+# DataClass in python
+
+In Python, the `dataclass` is a decorator introduced in Python 3.7 as part of the `dataclasses` module. It automatically generates special methods like `__init__`, `__repr__`, `__eq__`, and more, making it easier to create simple classes for storing data. This can help reduce boilerplate code and enhance the readability of your code.
+
+Here's an example of using the `dataclass` decorator:
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+    name: str
+    age: int
+    gender: str
+
+# Creating an instance
+person = Person(name="Alice", age=25, gender="Female")
+
+# Accessing fields
+print(person.name)
+print(person.age)
+print(person.gender)
+
+# String representation (automatically generated)
+print(person)
+```
+
+In this example, the `@dataclass` decorator is applied to the `Person` class. The class definition is concise, and the `__init__`, `__repr__`, and other special methods are generated automatically by the decorator.
+
+You can customize the behavior of the `dataclass` decorator by specifying parameters. For example, you can use the `order=True` parameter to include the class fields in the comparison order, or you can use the `frozen=True` parameter to make instances immutable. Here's an example:
+
+```python
+from dataclasses import dataclass
+
+@dataclass(order=True, frozen=True)
+class Point:
+    x: int
+    y: int
+
+p1 = Point(1, 2)
+p2 = Point(1, 2)
+
+print(p1 == p2)  # True because of the generated __eq__ method
+print(p1 < p2)   # False because of the generated comparison methods
+```
+
+The `dataclass` decorator is especially useful when you want to create classes primarily for storing data, as it reduces the amount of boilerplate code you need to write while still providing useful default behavior.
