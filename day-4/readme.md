@@ -119,3 +119,114 @@ Steps to run a Python code file named `multithreading_example.py`:
 - Wait for the script to finish executing.
 
 That's it! You've successfully run your `multithreading_example.py` script.
+
+
+
+# Download file using Multithreading
+```python
+import threading
+import requests
+
+def download_and_save_file(url, file_index):
+    """
+    Download a file from the given URL and save it with an index-based filename.
+    
+    Args:
+        url (str): The URL of the file to be downloaded.
+        file_index (int): Index for generating the filename.
+    """
+    print(f"Starting downloading file at index {file_index}")
+    
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        with open(f"images/file_{file_index}.jpg", "wb") as file:
+            file.write(response.content)
+        print(f"Download completed for file at index {file_index}")
+    else:
+        print("Error loading file")
+    
+
+if __name__ == "__main__":
+    threads = []
+    file_url = "https://picsum.photos/200/300"
+    
+    for index in range(10):
+        thread = threading.Thread(target=download_and_save_file, args=(file_url, index))
+        thread.start()
+        threads.append(thread)
+        
+    for thread in threads:
+        thread.join()
+
+```
+The provided code is a Python script that demonstrates how to use multi-threading to download and save multiple image files concurrently from a given URL. Here's a breakdown of how the code works:
+
+1. **Importing Libraries:**
+   - `import threading`: Imports the `threading` module, which provides tools for working with threads.
+   - `import requests`: Imports the `requests` library, which is used to send HTTP requests.
+
+2. **Defining the Function:**
+   - `def download_and_save_file(url, file_index):` - Defines a function named `download_and_save_file` that takes two parameters: `url` (the URL of the file to download) and `file_index` (an index for generating the filename).
+
+3. **Function Explanation:**
+   - The function's purpose is to download an image file from the provided URL and save it with a filename based on the `file_index`.
+
+4. **Downloading and Saving File:**
+   - Inside the function, it prints a message indicating that the download is starting.
+   - It sends an HTTP GET request using `requests.get(url)` to retrieve the content of the specified URL.
+   - If the response status code is `200` (indicating success):
+     - It opens a new file with a filename like `"images/file_{file_index}.jpg"` in binary write mode.
+     - Writes the content of the response (the image) to the file.
+     - Prints a message indicating that the download is completed.
+   - If the response status code is not `200`, it prints an error message.
+
+5. **Main Execution:**
+   - The `if __name__ == "__main__":` block is used to ensure that the code inside it is only executed when the script is run directly, not when it's imported as a module in another script.
+
+6. **Creating Threads:**
+   - `threads = []`: Initializes an empty list to store the thread objects.
+   - `file_url = "https://picsum.photos/200/300"`: Defines the URL of the image files to download.
+   - The code then enters a loop that runs 10 times (`for index in range(10):`).
+   - Inside the loop:
+     - Creates a new thread object named `thread` using `threading.Thread(target=download_and_save_file, args=(file_url, index))`.
+     - Starts the thread using `thread.start()`.
+     - Appends the thread object to the `threads` list.
+
+7. **Waiting for Threads to Finish:**
+   - After creating and starting all the threads, the script enters another loop to wait for each thread to finish its execution (`for thread in threads:`).
+   - `thread.join()` is called on each thread, which blocks the script's execution until the thread has completed.
+
+The script essentially creates 10 threads, each downloading an image from the specified URL and saving it with a unique filename based on the index. By using multi-threading, the script can download multiple images concurrently, potentially improving the overall speed of the process.
+---
+Here are the steps to run the code from the file named `multithreading_downloading_file_example.py` presented in the format you provided:
+
+**Steps to Run the Python Code:**
+
+1. **Open a Terminal or Command Prompt:**
+   - On Windows, search for "Command Prompt" in the Start menu and open it.
+   - On macOS, open the Terminal from the Applications > Utilities folder.
+   - On Linux, use the system menu or press `Ctrl + Alt + T` to open the Terminal.
+
+2. **Navigate to the File's Directory:**
+   - Use the `cd` command to change the current directory to where `multithreading_downloading_file_example.py` is located:
+     ```
+     cd path/to/your/directory
+     ```
+
+3. **Run the Python Script:**
+   - Execute the script using the `python` command followed by the script's filename:
+     ```
+     python multithreading_downloading_file_example.py
+     ```
+   - If `python` doesn't work, try `python3` depending on your system configuration.
+
+4. **Observe the Output:**
+   - As the script runs, you'll see output messages in the terminal displaying the progress of multi-threaded downloads.
+   - Messages will indicate the start and completion of each download.
+
+5. **Wait for Completion:**
+   - The script will wait until all threads finish before it completes.
+   - Observe the output messages to track the download progress and completion.
+
+By following these steps, you'll successfully execute the `multithreading_downloading_file_example.py` script and witness the multi-threaded file downloading process in action.
